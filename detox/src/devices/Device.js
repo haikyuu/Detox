@@ -84,7 +84,8 @@ class Device {
     const processId = await this.deviceDriver.launchApp(this._deviceId, _bundleId, this._prepareLaunchArgs(baseLaunchArgs), params.languageAndLocale);
     this._processes[_bundleId] = processId;
 
-    await this.deviceDriver.waitUntilReady();
+    // TODO: CHECK IF EXPO BEFORE SKIPPING
+    //await this.deviceDriver.waitUntilReady();
     await this.deviceDriver.waitForActive();
 
     if(params.detoxUserNotificationDataURL) {
